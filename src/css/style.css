@@ -1,0 +1,158 @@
+body{
+  font-family: 'ssf4', courier, monospace;
+  background: var(--cor-secundaria);
+}
+
+body::before{
+  content: '';
+  background-image: url("../assets/1cYrMYF.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+main{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header{
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+}
+
+.header .title{
+  color: var(--cor-titulo-fraco);
+  text-transform: uppercase;
+  font-size: 3.25rem;
+  line-height: 6.375rem;
+  -webkit-text-stroke: 0.125rem var(--cor-titulo-forte);  
+}
+
+.character-selection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-selection .big-character{
+  text-align: center;
+  width: 30%;
+  height: 75vh;
+  position: relative;
+}
+
+.character-selection .big-character img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.character-selection .big-character .name::before{
+  content: '';
+  height: 1.875rem;
+  width: 100%;
+  position: absolute;
+  bottom: -0.9375rem;
+  left: 0;
+  
+}
+
+.character-selection .big-character .name h2{
+  color: var(--cor-padrao);
+  font-family: 'command', sans-serif;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 1.6875rem;
+}
+
+.character-selection .big-character.character-player-1 .name::before{
+  background-color: var(--cor-azul-principal);
+}
+
+.character-selection .big-character.character-player-2 .name::before{
+  background-color: var(--cor-vermelha-principal);
+}
+
+.character-selection .character-list{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 37.5rem;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.character-selection .character-list .character{
+  border: 2px solid var(--cor-padrao);
+  background-color: var(--cor-padrao);
+  width: 30%;
+  height: 10rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 0.3rem;
+  position: relative;
+  transition: 0.15s ease-in-out;
+}
+
+.character-selection .character-list .character img{
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+}
+
+.character-selection .character-list .character.select{
+  border: 2px solid var(--cor-azul-media);
+  animation: c-glowing-blue .3s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+.character-selection .character-list .character:hover{
+  animation: c-glowing-blue .3s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: scale(1.07);
+  z-index: 2;
+}
+
+.character-selection .character-list .character.player-2-select{
+  border: 2px solid var(--cor-vermelha-fraca);
+  animation: c-glowing-red .3s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+.character-selection .character-list .character.player-2-select:hover{
+  animation: c-glowing-red .3s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+.character-selection .character-list .character .tag{
+  display: none;
+  font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 0.3125rem;
+  left: 0.3125rem;
+  color: var(--cor-azul-media);
+  transition: opacity .3s ease-in-out;
+  animation: text-glowing-blue .3s ease-in-out infinite;
+  animation-direction: alternate;
+
+}
+
+.character-selection .character-list .character.select .tag{
+  display: block;
+  animation: text-glowing-blue .3s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+.character-selection .character-list .character.player-2-select .tag{
+  display: block;
+  animation: text-glowing-red .3s ease-in-out infinite;
+  animation-direction: alternate;
+}
